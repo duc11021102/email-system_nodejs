@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Email System</title>
+    <link rel="stylesheet" href="/css/outbox.css" type="text/css" />
+    <style></style>
+  </head>
+
+  <body>
+    <div class="container">
+      <%- include('header'); -%>
+      <div class="titlePage">Outbox Page</div>
+      <div class="content"><%- include('menu'); -%></div>
+    </div>
+
+    <% if (emails.length > 0) { %>
+    <ul class="list">
+      <% emails.forEach(email => { %>
+      <li>
+        <% const rawDate = email.timestamp; %> <% const formattedDate = new
+        Date(rawDate).toLocaleDateString('en-US', { month: 'short', day:
+        'numeric' }); %>
+        <input class="checkbox" type="checkbox" />
+        <div class="name"><%= email.sender_name %></div>
+        <div class="subject"><%= email.subject %></div>
+        <div class="body"><%= email.body %></div>
+        <div class="date"><%= formattedDate %></div>
+      </li>
+      <% }); %>
+    </ul>
+    <% } else { %>
+    <p>No emails in the inbox.</p>
+    <% } %>
+  </body>
+</html>

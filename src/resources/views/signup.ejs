@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Email System - Sign Up</title>
+    <!-- <link rel="stylesheet" href="/src/public/css/app.css" /> -->
+    <!-- Link to your custom CSS file -->
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Email System - Sign Up</h1>
+      <form method="post" action="/signup">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required />
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required />
+
+        <label for="repassword">Re-type Password:</label>
+        <input type="password" id="repassword" name="repassword" required />
+
+        <button type="submit">Sign Up</button>
+      </form>
+      <p><%=errorMessage%></p>
+      <p>Already have an account? <a href="/">Sign In</a></p>
+    </div>
+  </body>
+</html>
